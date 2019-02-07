@@ -7,6 +7,7 @@ class UI {
     this.postSubmit = document.querySelector('.post-submit');
     this.formState = 'add';
   }
+
   showPosts(posts){
     let output = '';
     posts.forEach( post => {
@@ -26,6 +27,32 @@ class UI {
       `;
     });
     this.post.innerHTML = output;
+  }
+
+  showAlert(message,className) {
+    this.clearAlert();
+    const div = document.createElement('div');
+    div.className = className;
+    div.appendChild(document.createTextNode(message));
+    //get parent
+    const container = document.querySelector('.postsContainer');
+    container.insertBefore(div,this.post);
+
+    setTimeout(() => {
+      this.clearAlert();
+    },2000);
+  }
+
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+    if(currentAlert) {
+      currentAlert.remove();
+    }
+  }
+  clearFields() {
+    console.log('test');
+    this.titleInput.value = '';
+    this.body.value = '';
   }
 }
 export const ui = new UI();
