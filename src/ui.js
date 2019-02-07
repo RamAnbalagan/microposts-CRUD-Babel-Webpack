@@ -50,9 +50,47 @@ class UI {
     }
   }
   clearFields() {
-    console.log('test');
     this.titleInput.value = '';
     this.body.value = '';
+  }
+
+  fillForm(data) {
+    this.titleInput.value = data.title;
+    this.body.value = data.body;
+    this.idInput.value = data.id;
+    this.changeFormState('edit');
+  }
+
+  changeFormState(type) {
+    console.log(type);
+    if(type === 'edit') {
+      this.postSubmit.textContent = 'Update Post';
+      this.postSubmit.className = 'post-submit btn btn-warning btn-block';
+      // create cancel button
+      const button = document.createElement('button');
+      button.className = 'post-cancel btn btn-light btn-block';
+      button.appendChild(document.createTextNode('Cancel Edit'));
+
+      // get parent
+      const parent = document.querySelector('.card-form');
+      // element to insert before
+      const formEnd = document.querySelector('.form-end');
+      parent.insertBefore(button,formEnd);
+    }
+    else {
+      this.postSubmit.textContent = 'Post it';
+      this.postSubmit.className = 'post-submit btn btn-primary btn-block';
+      const cancel = document.querySelector('.post-cancel');
+      if(cancel) {
+        cancel.remove();
+      } 
+      this.clearIdInput();
+      this.clearFields();
+    }
+  }
+
+  clearIdInput() {
+    this.idInput.value = '';
   }
 }
 export const ui = new UI();
