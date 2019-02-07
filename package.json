@@ -1,0 +1,32 @@
+{
+  "name": "babel-webpack-starter-kit",
+  "version": "1.0.0",
+  "description": "Starter pack for ES6+ applications using Webpack and Babel. Transpiles it down to ES5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --output-public-path=/build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamAnbalagan/babel-webpack-starter-kit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RamAnbalagan/babel-webpack-starter-kit/issues"
+  },
+  "homepage": "https://github.com/RamAnbalagan/babel-webpack-starter-kit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.29.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
